@@ -52,7 +52,7 @@ public class Task_Parse {
 
                 if (weatherElements.size() != 40) {
                     log.info("Не получилось спарсить погоду в городе: " + values[i].name() + ". Еще раз пробуем.");
-                    dopParse(values[i]);
+                    dopParse(values[i], 1);
                 }
 
 
@@ -93,7 +93,7 @@ public class Task_Parse {
     }
 
 
-    @Scheduled(cron = "0 0 0 * * *")
+    //@Scheduled(cron = "0 0 0 * * *")
     public void parseAllNews() {
         System.out.println("starting parse news");
 
@@ -126,23 +126,17 @@ public class Task_Parse {
             }
         }
     }
-    private void dopParse(City city){
+    private void dopParse(City city, int count){
+        if(count > 2) return;
         System.out.println("starting parse dop weather");
 
-
-
         try {
-
-
-
-
-
                 String url2 = city.getUrl();
                 Document page = Jsoup.connect(url2).get();
                 Elements weatherElements = page.getElementsByClass("weather-table__row");
                 if (weatherElements.size() != 40) {
                     log.info("Не получилось спарсить погоду в городе 2 или более раз: " + city.name());
-                    dopParse(city);
+                    dopParse(city, count + 1);
                     return;
                 }
 

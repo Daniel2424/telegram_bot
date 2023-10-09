@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgresql_db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: telegram_bot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: daniil
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 9000:5432
+  app:
+    container_name: telegram_bot
+    build: .
+    depends_on:
+      - db
+
+
+
+
