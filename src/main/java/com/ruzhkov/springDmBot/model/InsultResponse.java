@@ -19,4 +19,6 @@ public class InsultResponse {
     private int active;
     private String comment;
 
+
+
 }

@@ -189,7 +189,12 @@ public class ServiceBotImp implements ServiceBot{
                 "Все команды:\n\"" +
                 "/info\n" +
                 "/help\n" +
-                "/Погода сегодня\n");
+                "/register\n" +
+                "/my_data\n" +
+                "/delete_my_data\n" +
+                "/погода на 10 дней\n" +
+                "2023.08.24 - для вывода погоды на 24 августа 2023 года\n" +
+                "2023.08.24 - 2023.08.29 - для вывода погоды c 24 по 29 августа 2023 года");
         log.info("Replied to user: " + firstName);
         return answer;
     }
