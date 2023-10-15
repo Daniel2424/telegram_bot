@@ -19,7 +19,7 @@
 ```
 git clone https://github.com/Daniel2424/telegram_bot.git
 ```
-2) Зарегистрируйте ваш бот в Telegram и получите токен.
+2) Зарегистрируйте вашего бота в Telegram и получите токен.
 3) Заполните настройки бота, такие как токен(измените файл application.properties), информацию о базе данных (измените файл docker-compose.yaml).
    ### Пример:
 ```
